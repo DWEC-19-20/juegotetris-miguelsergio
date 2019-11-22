@@ -12,7 +12,32 @@ class Juego {
 
     // devuelve una pieza aleatoria
     piezaAleatoria = () => {
+        var nuevaPieza = Math.random();
+        var color;
+        
+        if(nuevaPieza<=0.143){
+            nuevaPieza=Z;
+        }else if(nuevaPieza>=0.143 && nuevaPieza<=0.286){
+            nuevaPieza=I;
+        }else if(nuevaPieza>=0.286 && nuevaPieza<=0.429){
+            nuevaPieza=S;
+        }else if(nuevaPieza>=0.429 && nuevaPieza<=0.572){
+            nuevaPieza=T;
+        }else if(nuevaPieza>=0.572 && nuevaPieza<=0.715){
+            nuevaPieza=O;
+        }else if(nuevaPieza>=0.715 && nuevaPieza<=0.858){
+            nuevaPieza=L;
+        }else{
+            nuevaPieza=J;
+        }
 
+        for(let i = 0; i<=PIEZAS.length; i++){
+            if(PIEZAS[i][0]==piezaNueva){
+                color=PIEZAS[i][1];
+            }
+        }
+        
+        return new Pieza(nuevaPieza, color, this.tablero);
     }
 
     get tablero() {
